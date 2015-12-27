@@ -1,0 +1,1 @@
+{%- from "zookeeper/map.jinja" import zookeeper with context %}{{ zookeeper.conf.myid }}

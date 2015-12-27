@@ -1,0 +1,34 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+
+# common mutualized values
+{% set version_full = "3.4.5" %}
+
+zookeeper:
+  java:
+    pkg: openjdk-8-jre-headless
+  pkg: zookeeperd
+  config:
+    zoo_cfg: '/etc/zookeeper/conf/zoo.cfg'
+    myid: '/etc/zookeeper/conf/myid'
+  service:
+    name: zookeeper
+  version:
+    full: {{ version_full }}
+  user: zookeeper
+  group: zookeeper
+  conf:
+    myid: 0
+    tickTime: 2000
+    initLimit: 10
+    syncLimit: 5
+    dataDir: /var/lib/zookeeper
+    dataLogDir: /disk2/zookeeper
+    clientPort: 2181
+    #server.1: 'zookeeper1:2888:3888'
+    #server.2: 'zookeeper2:2888:3888'
+    #server.3: 'zookeeper3:2888:3888'
+    preAllocSize: 65536
+    snapCount: 1000
+    traceFile: ''
+    leaderServes: 'yes'

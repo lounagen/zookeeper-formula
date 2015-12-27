@@ -1,0 +1,3 @@
+zookeeper:
+  lookup:
+    master: zookeeper-master
