@@ -20,6 +20,7 @@ zookeeper-java-pkg:
       - group
       - mode
 
+{%- if zookeeper.conf.dataLogDir != zookeeper.conf.dataDir %}
 {{ zookeeper.conf.dataLogDir }}:
   file.directory:
     - user: {{ zookeeper.user }}
@@ -31,6 +32,7 @@ zookeeper-java-pkg:
       - user
       - group
       - mode
+{%- endif %}
 
 zookeeper-pkg:
   pkg.installed:
