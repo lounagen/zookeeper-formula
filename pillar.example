@@ -1,3 +1,11 @@
 zookeeper:
   lookup:
-    master: zookeeper-master
+    foo: zookeeper-bar
+  conf:
+    myid: 42
+    servers:
+{%- for n in range(1,7) %}
+      - {{ 'server.' ~ n ~ '=zoo-' ~ n ~ '.mydomain.foo:2888:3888' }}
+{%- endfor %}
+    # Note that dataLogDir is recommended to be on another disk in production env
+    dataLogDir: /var/lib/zookeeper
